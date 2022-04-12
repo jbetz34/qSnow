@@ -3,7 +3,9 @@
 <head>
 <script>
     let ws = new WebSocket("ws://localhost:5455/");
-    ws.onopen=function(e){ws.send("Open Sesame")};
+    ws.onopen=function(e){
+        ws.send(`${window.innerHeight},${window.innerWidth}`)
+    };
     ws.onclose=function(e){};
     ws.onmessage=function(e){printSnow(e.data)};
     ws.onerror=function(e){window.alert("WS Error")};
